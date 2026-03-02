@@ -1,0 +1,8 @@
+{
+  "label": "Architectural Breakdown",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "5 minutes to explain how Go Memory works.."
+  }
+}
