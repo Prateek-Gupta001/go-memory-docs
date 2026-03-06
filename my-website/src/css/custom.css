@@ -1,30 +1,297 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * GoMemory Cortex — Cyberpunk Blue/Purple Theme
+ * Infima CSS variable overrides + global styles
  */
 
-/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Share+Tech+Mono&display=swap');
+/* ─── Light Mode (base) ─── */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Primary: Electric Blue */
+  --ifm-color-primary: #3d8eff;
+  --ifm-color-primary-dark: #1a7aff;
+  --ifm-color-primary-darker: #0d71ff;
+  --ifm-color-primary-darkest: #005ce6;
+  --ifm-color-primary-light: #60a3ff;
+  --ifm-color-primary-lighter: #6eabff;
+  --ifm-color-primary-lightest: #99c4ff;
+
+  --ifm-code-font-size: 93%;
+  --docusaurus-highlighted-code-line-bg: rgba(61, 142, 255, 0.12);
+
+  /* GoMemory brand palette */
+  --gm-blue:          #3d8eff;
+  --gm-cyan:          #00cfff;
+  --gm-purple:        #8b3dff;
+  --gm-purple-mid:    #a259ff;
+  --gm-purple-light:  #c084fc;
+  --gm-gradient:      linear-gradient(120deg, #3d8eff 0%, #8b3dff 100%);
+  --gm-gradient-text: linear-gradient(110deg, #4fa8ff 0%, #a259ff 60%, #c084fc 100%);
+
+  /* Typography */
+  --ifm-font-family-base:      'Be Vietnam Pro', sans-serif;
+  --ifm-heading-font-family:   'Orbitron', sans-serif;
+  --ifm-font-family-monospace: 'Share Tech Mono', monospace;
+  --ifm-font-size-base:        16px;
+  --ifm-line-height-base:      1.7;
+
+  /* Borders & radius */
+  --ifm-global-radius: 4px;
+  --ifm-button-border-radius: 3px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* ─── Dark Mode (primary experience) ─── */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #4fa8ff;
+  --ifm-color-primary-dark: #2d97ff;
+  --ifm-color-primary-darker: #1a8fff;
+  --ifm-color-primary-darkest: #006fe8;
+  --ifm-color-primary-light: #71baff;
+  --ifm-color-primary-lighter: #80c0ff;
+  --ifm-color-primary-lightest: #aad5ff;
+
+  --docusaurus-highlighted-code-line-bg: rgba(79, 168, 255, 0.15);
+
+  /* Backgrounds */
+  --ifm-background-color:         #09090f;
+  --ifm-background-surface-color: #0e0e1a;
+  --ifm-hover-overlay:            rgba(79, 168, 255, 0.06);
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(9, 9, 15, 0.82);
+  --ifm-navbar-shadow:           none;
+  --ifm-navbar-height:           62px;
+
+  /* Footer */
+  --ifm-footer-background-color: #06060e;
+
+  /* Sidebar */
+  --ifm-menu-color-background-active:  rgba(79, 168, 255, 0.12);
+  --ifm-menu-color-background-hover:   rgba(79, 168, 255, 0.07);
+
+  /* Text */
+  --ifm-font-color-base:       #c8d8f0;
+  --ifm-color-content:         #c8d8f0;
+  --ifm-heading-color:         #e8f0ff;
+
+  /* Cards / panels */
+  --ifm-card-background-color: #0e0e1a;
+}
+
+/* ════════════════════════════════════════════
+   NAVBAR
+════════════════════════════════════════════ */
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(79, 168, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 1px 0 rgba(79, 168, 255, 0.12),
+    0 4px 40px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='dark'] .navbar__title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  background: var(--gm-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .navbar__link {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #9ab8e0;
+  transition: color 0.2s ease;
+}
+
+[data-theme='dark'] .navbar__link:hover,
+[data-theme='dark'] .navbar__link--active {
+  color: var(--gm-cyan);
+}
+
+/* ════════════════════════════════════════════
+   SIDEBAR / MENU
+════════════════════════════════════════════ */
+[data-theme='dark'] .menu__link {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 3px;
+  transition: color 0.15s, background 0.15s;
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: var(--gm-cyan) !important;
+  background: rgba(0, 207, 255, 0.08) !important;
+  border-left: 2px solid var(--gm-cyan);
+}
+
+[data-theme='dark'] .menu__caret::before {
+  border-color: #5a7aaa;
+}
+
+/* ════════════════════════════════════════════
+   HEADINGS
+════════════════════════════════════════════ */
+[data-theme='dark'] h1,
+[data-theme='dark'] h2,
+[data-theme='dark'] h3 {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.03em;
+  color: var(--ifm-heading-color);
+}
+
+[data-theme='dark'] h4,
+[data-theme='dark'] h5,
+[data-theme='dark'] h6 {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9ab8e0;
+}
+
+/* ════════════════════════════════════════════
+   ARTICLE / DOC CONTENT
+════════════════════════════════════════════ */
+[data-theme='dark'] .markdown h2 {
+  border-bottom: 1px solid rgba(79, 168, 255, 0.2);
+  padding-bottom: 0.4em;
+  margin-top: 2.4rem;
+}
+
+[data-theme='dark'] .markdown a {
+  color: var(--gm-blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(61, 142, 255, 0.3);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+[data-theme='dark'] .markdown a:hover {
+  color: var(--gm-cyan);
+  border-color: var(--gm-cyan);
+}
+
+/* ════════════════════════════════════════════
+   CODE BLOCKS
+════════════════════════════════════════════ */
+[data-theme='dark'] .prism-code {
+  background: #07071200 !important;
+  border: 1px solid rgba(79, 168, 255, 0.18) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 30px rgba(79, 168, 255, 0.04), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+[data-theme='dark'] .codeBlockContainer_node_modules {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+[data-theme='dark'] code {
+  background: rgba(79, 168, 255, 0.1);
+  border: 1px solid rgba(79, 168, 255, 0.2);
+  border-radius: 3px;
+  color: var(--gm-cyan);
+  font-size: 0.88em;
+  padding: 1px 5px;
+}
+
+/* ════════════════════════════════════════════
+   ADMONITIONS
+════════════════════════════════════════════ */
+[data-theme='dark'] .alert {
+  background: rgba(9, 9, 15, 0.6);
+  border-radius: 4px;
+  border-left-width: 3px;
+}
+
+[data-theme='dark'] .alert--info {
+  border-color: var(--gm-blue);
+  background: rgba(61, 142, 255, 0.07);
+}
+
+[data-theme='dark'] .alert--warning {
+  border-color: #ffb340;
+  background: rgba(255, 179, 64, 0.07);
+}
+
+/* ════════════════════════════════════════════
+   BUTTONS (global)
+════════════════════════════════════════════ */
+[data-theme='dark'] .button--secondary {
+  background: transparent;
+  border: 1px solid rgba(79, 168, 255, 0.5);
+  color: var(--gm-blue);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: all 0.25s ease;
+}
+
+[data-theme='dark'] .button--secondary:hover {
+  background: rgba(79, 168, 255, 0.1);
+  border-color: var(--gm-cyan);
+  color: var(--gm-cyan);
+  box-shadow: 0 0 20px rgba(0, 207, 255, 0.3), inset 0 0 12px rgba(0, 207, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════ */
+[data-theme='dark'] .footer {
+  border-top: 1px solid rgba(79, 168, 255, 0.12);
+}
+
+[data-theme='dark'] .footer__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--gm-blue);
+}
+
+[data-theme='dark'] .footer__link-item {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  color: #6a8aaa;
+  transition: color 0.2s;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: var(--gm-cyan);
+}
+
+/* ════════════════════════════════════════════
+   SCROLLBAR
+════════════════════════════════════════════ */
+[data-theme='dark'] ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-track {
+  background: #09090f;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: rgba(79, 168, 255, 0.25);
+  border-radius: 3px;
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 168, 255, 0.45);
+}
+
+/* ════════════════════════════════════════════
+   SELECTION
+════════════════════════════════════════════ */
+[data-theme='dark'] ::selection {
+  background: rgba(139, 61, 255, 0.35);
+  color: #fff;
 }

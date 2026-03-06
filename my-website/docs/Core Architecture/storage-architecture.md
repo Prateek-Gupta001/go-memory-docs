@@ -5,7 +5,7 @@ slug: /storage-architecture
 
 # Storage Architecture
 
-We use Redis for storing Core Memories and Qdrant (https://qdrant.tech) (a vector database) for storing General Memories. 
+We use Redis for storing Core Memories and [Qdrant](https://qdrant.tech/) (a vector database) for storing General Memories. 
 
 To understand why, we need to understand how these memories are retrieved. 
 

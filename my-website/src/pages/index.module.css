@@ -1,23 +1,260 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+/* ════════════════════════════════════════════
+   GoMemory — Hero / Homepage Styles
+   Cyberpunk Blue × Purple
+════════════════════════════════════════════ */
 
+/* ─── Hero Banner Shell ─── */
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
   position: relative;
+  padding: 7rem 0 6rem;
   overflow: hidden;
+  background: #09090f;
+  isolation: isolate;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* ─── Animated gradient orbs (background layer) ─── */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 20% 50%, rgba(61, 142, 255, 0.13) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 55% at 80% 40%, rgba(139, 61, 255, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 50% 90%, rgba(0, 207, 255, 0.06) 0%, transparent 60%);
+  animation: orbPulse 8s ease-in-out infinite alternate;
+  z-index: 0;
 }
 
+@keyframes orbPulse {
+  0%   { opacity: 0.7; transform: scale(1); }
+  50%  { opacity: 1;   transform: scale(1.04); }
+  100% { opacity: 0.8; transform: scale(0.98); }
+}
+
+/* ─── Grid overlay ─── */
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79, 168, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 168, 255, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── Scanline shimmer ─── */
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ─── Glowing horizontal accent line ─── */
+.heroDivider {
+  width: 180px;
+  height: 2px;
+  margin: 1.6rem auto 0;
+  background: linear-gradient(90deg, transparent, #3d8eff 30%, #8b3dff 70%, transparent);
+  border-radius: 2px;
+  box-shadow: 0 0 16px rgba(79, 168, 255, 0.6), 0 0 40px rgba(139, 61, 255, 0.3);
+  animation: dividerPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes dividerPulse {
+  0%   { opacity: 0.7; width: 160px; }
+  100% { opacity: 1;   width: 200px; }
+}
+
+/* ─── Hero inner container ─── */
+.heroInner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ─── PRE-TITLE badge ─── */
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1.6rem;
+  border: 1px solid rgba(79, 168, 255, 0.3);
+  border-radius: 100px;
+  background: rgba(79, 168, 255, 0.06);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: rgba(79, 168, 255, 0.85);
+  text-transform: uppercase;
+  animation: fadeSlideDown 0.7s ease both;
+}
+
+.heroBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00cfff;
+  box-shadow: 0 0 8px #00cfff;
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ─── Hero Title ─── */
+.heroTitle {
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: clamp(2.4rem, 6vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.12 !important;
+  background: linear-gradient(110deg, #4fa8ff 0%, #a259ff 55%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none !important;
+  filter: drop-shadow(0 0 30px rgba(79, 168, 255, 0.35));
+  margin-bottom: 0 !important;
+  animation: fadeSlideDown 0.8s ease 0.1s both;
+}
+
+/* ─── Hero Subtitle ─── */
+.heroSubtitle {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  color: #7a9cc0 !important;
+  margin-top: 1.4rem !important;
+  max-width: 560px;
+  animation: fadeSlideDown 0.8s ease 0.25s both;
+}
+
+/* ─── Buttons row ─── */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  margin-top: 2.4rem;
+  animation: fadeSlideDown 0.8s ease 0.4s both;
+}
+
+/* ─── CTA Button ─── */
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 2.2rem !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+  color: #c8e0ff !important;
+  background: transparent !important;
+  border: 1px solid rgba(79, 168, 255, 0.5) !important;
+  border-radius: 3px !important;
+  overflow: hidden;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.2s !important;
+  text-decoration: none !important;
+}
+
+/* Sweep fill on hover */
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(61, 142, 255, 0.15), rgba(139, 61, 255, 0.12));
+  transform: translateX(-110%);
+  transition: transform 0.35s ease;
+}
+
+.ctaButton:hover::before {
+  transform: translateX(0);
+}
+
+.ctaButton:hover {
+  color: #fff !important;
+  border-color: #4fa8ff !important;
+  box-shadow:
+    0 0 22px rgba(0, 207, 255, 0.35),
+    0 0 8px  rgba(79, 168, 255, 0.25),
+    inset 0 0 14px rgba(0, 207, 255, 0.06) !important;
+  transform: translateY(-2px);
+}
+
+/* Corner accent marks */
+.ctaButton::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid rgba(0, 207, 255, 0.7);
+  border-right: 2px solid rgba(0, 207, 255, 0.7);
+}
+
+/* ─── Entrance animations ─── */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ════════════════════════════════════════════
+   FEATURE CARDS (HomepageFeatures)
+════════════════════════════════════════════ */
+.featuresSection {
+  padding: 5rem 0;
+  background: #09090f;
+  position: relative;
+}
+
+.featuresSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(79, 168, 255, 0.25) 40%, rgba(139, 61, 255, 0.25) 60%, transparent 100%);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .heroBanner {
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
