@@ -81,7 +81,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Go Memory',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -93,9 +93,8 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Prateek-Gupta001/GoMemory',
           label: 'GitHub',
           position: 'right',
         },

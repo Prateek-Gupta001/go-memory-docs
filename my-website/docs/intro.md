@@ -33,4 +33,4 @@ Go Memory is designed to be self-hosted and observed in production environments 
 
 ---
 
-**Ready to get started?** Head over to the [Quickstart](docs/category/tutorial---extras) to spin up the server and add your first memory.
+**Ready to get started?** Head over to the [Quickstart](/docs/quickstart) to spin up the server and add your first memory.
