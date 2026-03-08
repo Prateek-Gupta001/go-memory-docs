@@ -9,6 +9,9 @@ One of the most competitive advantages of using Go Memory is that the memory ret
 
 Currently, it's strongly advised to use two-turn conversations (one user turn + one LLM turn) or at highest three-turn conversations to be sent to the Go Memory servers for retrieval. Go Memory prioritizes the last text that is provided by either the user or the LLM and cuts off the response at 500 characters. If your messages exceed that threshold, then any text or intent expressed by the user for an event won't be captured and won't be used for retrieval. Hence, two-turn conversations serve best for this area, and Go Memory retrieval speeds ensure that the reads are fast and barely stop the user-LLM conversation.
 
+**This however is temporary as in the next v2 version Go Memory will support concurrent chunking which will handle long input prompts extremely well.**
+Concurrent chunking would make Go Memory robust for longer input sequences thereby eliminating any need of recursive memory retrieval at every turn or sending shorter conversations only. 
+
 ### Retrieval Input Types
 
 The Memory retrieval endpoint supports two types of inputs:
