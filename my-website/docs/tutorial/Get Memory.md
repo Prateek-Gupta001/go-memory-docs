@@ -25,6 +25,8 @@ The request requires a JSON body containing the user identifier and the retrieva
 | `query` | `string` | No* | A direct text query used to find semantically similar memories. |
 | `messages` | `array` | No* | A list of message objects representing the conversation history. Must contain at least one message if provided. |
 | `threshold` | `float` | No | The similarity threshold for memory retrieval. Defaults to `0.65` if not provided. |
+| `core` | `bool` | No | Decides if core memories are to be sent to the client. True by default unless false is passed. |
+
 
 **Message Object Structure:**
 If using the `messages` array, each item must be formatted as follows:
@@ -45,7 +47,7 @@ If using the `messages` array, each item must be formatted as follows:
       "role": "model",
       "content": "That sounds exciting! Do you have an itinerary yet?"
     }
-  ]
+  ],
 }
 ```
 
